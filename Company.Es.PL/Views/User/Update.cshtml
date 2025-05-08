@@ -1,0 +1,35 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update User</h1>
+
+<form  asp-action="Update" method="post" enctype="multipart/form-data">
+    @*send this form to Create method*@
+
+
+
+    <div class="form-group">
+        <label asp-for="FirstName" class="col-form-label"></label>
+        <input asp-for="FirstName" class="form-control">
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName" class="col-form-label"></label>
+        <input asp-for="LastName" class="form-control">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="col-form-label"></label>
+        <input asp-for="Email" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>

@@ -1,0 +1,26 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Role</h1>
+
+
+<form asp-action="Create" enctype="multipart/form-data"> @*to upload file you must use "multipart/form-data"*@
+    @*send this form to Create method*@
+
+    <partial name="PartialViews/CreateUpdateEmpPartialView" model="Model" />
+
+
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+
+
+</form>
+
+@section ClientSideValidation{
+    @*to prevent send request to backend in case of invalid input data*@
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,22 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<h1>Update Role</h1>
+
+<form asp-action="Update" enctype="multipart/form-data">
+    @*send this form to Create method*@
+
+    <partial name="PartialViews/CreateUpdateEmpPartialView" model="Model" />
+
+    <a asp-action="AddOrRemoveUsers" asp-route-id="@Model.Id" class="btn btn-success">Add Or Remove Users</a>
+    <br />
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+
+

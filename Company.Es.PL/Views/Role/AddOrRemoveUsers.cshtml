@@ -1,0 +1,27 @@
+﻿@model List<UsersInRoleViewModel>
+@{
+    ViewData["Title"] = "AddOrRemoveUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var roleId = ViewData["RoleId"] as string; // Changed to ViewBag for consistency
+}
+
+<h1>AddOrRemoveUsers</h1>
+
+<form asp-action="AddOrRemoveUsers" asp-route-id="@roleId">
+    <!-- Include roleId as a hidden field -->
+    <input type="hidden" name="id" value="@roleId" />
+
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        <div class="form-group">
+            <input asp-for="@Model[i].IsSelected" />
+            <label asp-for="@Model[i].IsSelected">@Model[i].UserName</label>
+        </div>
+
+        <input type="hidden" asp-for="@Model[i].UserId" />
+        <input type="hidden" asp-for="@Model[i].UserName" />
+    }
+
+    <input type="submit" value="Update" class="btn btn-success" />
+    <a asp-action="Update" asp-route-id="@roleId" class="btn btn-light">Cancel</a>
+</form>
